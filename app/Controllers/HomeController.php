@@ -31,7 +31,7 @@ class HomeController extends Controller
             [
                 'meta' => Meta::home($sheet),
                 'data' => [
-                    'pagesCount'      => HomeModel::feedCount($signed, $sheet),
+                    'pagesCount'      => (int) ceil(HomeModel::feedCount($signed, $sheet) / HomeModel::$limit),
                     'pNum'            => $page,
                     'sheet'           => $sheet,
                     'type'            => 'main',
