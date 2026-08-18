@@ -4,28 +4,21 @@ namespace Modules\Search\Models;
 
 use Hleb\Base\Model;
 use Hleb\Static\DB;
+use Hleb\Database\PdoManager;
 
 use S2\Rose\Storage\Database\PdoStorage;
 
 class SearchModel extends Model
 {
 
-    public static function PdoStorage()
-    {
-        $database = config('database', 'db.settings.list');
+	public static function PdoStorage()
+	{
+		// Общее соединение фреймворка (новый коннект НЕ создаётся)
+		$pdo = (new \ReflectionProperty(PdoManager::class, 'pdo'))
+			->getValue(DB::getPdoInstance('mysql.name'));
 
-        // Array ( [0] => mysql:host=localhost [1] => port=3306 [2] => dbname=lwiki [3] => charset=utf8 [user] => root [pass] => [options] => Array ( ) )
-        $db = $database['mysql.name'];
-
-        $host = substr(strstr($db[0], '='), 1);
-        $port = substr(strstr($db[1], '='), 1);
-        $dbname = substr(strstr($db[2], '='), 1);
-
-        $pdo = new \PDO('mysql:host=' . $host . ':' . $port  .  ';dbname=' . $dbname . ';charset=utf8mb4', $db['user'], $db['pass']);
-        $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-
-        return new PdoStorage($pdo, 'search_index_');
-    }
+		return new PdoStorage($pdo, 'search_index_');
+	}
 
     public static function getContentsAll()
     {
