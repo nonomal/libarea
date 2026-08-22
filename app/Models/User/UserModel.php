@@ -219,7 +219,10 @@ class UserModel extends Model
         $sql = "SELECT 
                     (SELECT COUNT(post_id) FROM posts WHERE post_user_id = $user_id and post_draft = 0 and post_is_deleted = $condition) AS count_posts,
                   
-                    (SELECT COUNT(comment_id) FROM comments WHERE comment_user_id = $user_id and comment_is_deleted = $condition) AS count_comments";
+                    (SELECT COUNT(comment_id) FROM comments 
+                        LEFT JOIN posts ON comment_post_id = post_id
+                            WHERE comments.comment_user_id = $user_id and comments.comment_is_deleted = $condition 
+                                AND posts.post_is_deleted = $condition AND posts.post_tl = 0 AND posts.post_hidden = 0) AS count_comments";
 
         return DB::run($sql)->fetch();
     }

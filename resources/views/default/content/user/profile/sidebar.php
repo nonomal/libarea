@@ -6,7 +6,7 @@
 <div class="mb-none">
   <?php if ($counts > 3) : ?>
     <div class="box blockquote-profile">
-      <?php if ($profile['about'] == 'Riddle...') : ?>
+      <?php if (empty($profile['about']) || $profile['about'] == 'Riddle...') : ?>
         <?= __('app.riddle'); ?>...
       <?php else : ?>
 	    <?= markdown($profile['about'] ??  __('app.riddle')); ?>

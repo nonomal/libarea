@@ -320,7 +320,7 @@ class CommentModel extends Model
                         LEFT JOIN votes_comment ON votes_comment_item_id = comment_id
                             AND votes_comment_user_id = :uid_vote
                         WHERE comment_user_id = :user_id AND post_hidden = 0
-                            AND comment_is_deleted = 0 AND post_is_deleted = 0 AND post_tl = 0 AND post_tl = 0
+                            AND comment_is_deleted = 0 AND post_is_deleted = 0 AND post_tl = 0
                                 ORDER BY comment_id DESC LIMIT :start, :limit ";
 
         return DB::run($sql, ['user_id' => $user_id, 'uid_vote' => $uid_vote, 'start' => $start, 'limit' => self::$limit])->fetchAll();
@@ -340,7 +340,7 @@ class CommentModel extends Model
                         FROM comments
                         LEFT JOIN posts ON comment_post_id = post_id
                             WHERE comment_user_id = :user_id AND comment_is_deleted = 0 
-                                AND post_is_deleted = 0 AND post_tl = 0 AND post_tl = 0";
+                                AND post_is_deleted = 0 AND post_tl = 0 AND post_hidden = 0";
 
         return DB::run($sql, ['user_id' => $user_id])->rowCount();
     }

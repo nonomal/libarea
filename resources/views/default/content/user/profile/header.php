@@ -93,7 +93,7 @@ $counts = $data['counts']['count_posts'] + $data['counts']['count_comments'];
 
 <div class="none mb-block box">
   <div class="blockquote-profile box">
-    <?php if ($profile['about'] == 'Riddle...') : ?>
+    <?php if (empty($profile['about']) || $profile['about'] == 'Riddle...') : ?>
       <?= __('app.riddle'); ?>...
     <?php else : ?>
       <?= markdown($profile['about'] ??  __('app.riddle')); ?>

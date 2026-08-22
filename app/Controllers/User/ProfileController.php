@@ -101,6 +101,7 @@ class ProfileController extends Controller
                     [
 					'comments' => $comments,
 					'pNum'	=> Html::pageNumber(),
+					'pagesCount' => (int) ceil($commentsCount / CommentModel::$limit),
 					]
                 ),
             ]

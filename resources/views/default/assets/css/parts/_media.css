@@ -75,6 +75,7 @@
 }
 
 @media (max-width: 780px) {
+	
   .mb-w80 { width: 80px; }
   .mb-w150 { width: 150px; }
   .mb-p10 { padding: 10px; }
@@ -199,3 +200,12 @@
     overflow-y: scroll;
   }
 }
+
+@media (max-width: 480px) {
+	blockquote {
+		width: 270px;
+		display: block;
+		white-space: normal;
+		overflow-wrap: break-word;
+	}
+}	
