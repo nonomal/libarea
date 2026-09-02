@@ -61,8 +61,8 @@ class FacetModel extends Model
 
         return match ($sort) {
             'my' => [
-                'where' => "WHERE facet_type = :type AND facet_is_deleted = :deleted AND signed_user_id = :user_id ORDER BY facet_count DESC",
-                'params' => ['type' => $type, 'deleted' => self::NO_REMOVAL, 'user_id' => $userId]
+                'where' => "WHERE facet_type = :type AND facet_is_deleted = :deleted AND signed_user_id = :user_id_signed ORDER BY facet_count DESC",
+                'params' => ['type' => $type, 'deleted' => self::NO_REMOVAL, 'user_id_signed' => $userId]
             ],
             'new' => [
                 'where' => "WHERE facet_type = :type AND facet_is_deleted = :deleted ORDER BY facet_id DESC",
