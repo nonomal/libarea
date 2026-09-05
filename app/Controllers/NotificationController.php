@@ -96,7 +96,7 @@ class NotificationController extends Controller
             '/content/notification/notif-model',
             [
                 'data'  => [
-                    'notifications'    => NotificationModel::listNotification($this->container->user()->id(), 8),
+                    'notifications'    => NotificationModel::listNotification($this->container->user()->id(), 7),
                 ]
             ]
         );

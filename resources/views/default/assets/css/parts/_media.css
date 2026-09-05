@@ -199,6 +199,10 @@
     display: inline-block;
     overflow-y: scroll;
   }
+  
+  .pagination {
+    margin-left: 20px;
+  }
 }
 
 @media (max-width: 480px) {

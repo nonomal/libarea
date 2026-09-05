@@ -38,6 +38,43 @@
   height: 160px;
 }
 
+/* Letter avatar (default avatar placeholder) */
+.avatar-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  user-select: none;
+  text-transform: uppercase;
+}
+.avatar-letter.img-sm { font-size: 11px; }
+.avatar-letter.img-base { font-size: 16px; }
+.avatar-letter.img-lg { font-size: 28px; }
+.avatar-letter.img-xl { font-size: 42px; }
+.avatar-letter.img-2xl { font-size: 72px; }
+
+.avatar-color-0  { background-color: #e74c3c; }
+.avatar-color-1  { background-color: #e67e22; }
+.avatar-color-2  { background-color: #f1c40f; }
+.avatar-color-3  { background-color: #2ecc71; }
+.avatar-color-4  { background-color: #1abc9c; }
+.avatar-color-5  { background-color: #3498db; }
+.avatar-color-6  { background-color: #9b59b6; }
+.avatar-color-7  { background-color: #34495e; }
+.avatar-color-8  { background-color: #e84393; }
+.avatar-color-9  { background-color: #00b894; }
+.avatar-color-10 { background-color: #6c5ce7; }
+.avatar-color-11 { background-color: #d63031; }
+.avatar-color-12 { background-color: #00cec9; }
+.avatar-color-13 { background-color: #b71540; }
+.avatar-color-14 { background-color: #0abde3; }
+.avatar-color-15 { background-color: #8854d0; }
+.avatar-color-16 { background-color: #20bf6b; }
+.avatar-color-17 { background-color: #fa8231; }
+.avatar-color-18 { background-color: #2d3436; }
+.avatar-color-19 { background-color: #636e72; }
+
 .trigger img.img-base:hover {
   opacity: 0.7;
 }

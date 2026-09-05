@@ -50,6 +50,13 @@ class Img
      */
     public static function avatar(string $file, string $alt, string $style, string $size): string
     {
+        if ($file === 'noavatar.png' || $file === false || $file === '') {
+            $letter = $alt !== '' ? mb_strtoupper(mb_substr($alt, 0, 1)) : '?';
+            $colorIndex = abs(crc32($letter)) % 20;
+            $letter = htmlspecialchars($letter, ENT_QUOTES, 'UTF-8', false);
+            return '<span class="avatar-letter avatar-color-' . $colorIndex . ' ' . $style . '">' . $letter . '</span>';
+        }
+
         $imgPath = self::generateImagePath($file, 'avatar', $size);
 		$alt = htmlspecialchars($alt, ENT_QUOTES, null, false);
 
